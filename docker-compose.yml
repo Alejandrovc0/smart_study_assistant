@@ -1,6 +1,6 @@
-version: '3.9'
+version: '3.8'
 services:
-  gpt-newspaper:
+  smart_study_assistant:
     build:
       context: .
     ports:
