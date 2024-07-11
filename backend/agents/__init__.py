@@ -9,7 +9,6 @@ __all__ = [
     "MaterialAgent",
     "RevisorAgent",
     "ProgressTrackingAgent",
-    "QnaAgent",
     "SchedulerAgent",
     "StudyAgent"
 ]
