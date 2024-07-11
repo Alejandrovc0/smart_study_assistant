@@ -13,5 +13,5 @@ def index():
 def generate_newspaper():
     data = request.json
     main_agent = MainAgent()
-    study_assistant = main_agent.run(data["topics"])
+    study_assistant = main_agent.run(data["topic"])
     return jsonify({"path": study_assistant}), 200
