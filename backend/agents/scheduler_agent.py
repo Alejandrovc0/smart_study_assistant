@@ -32,25 +32,6 @@ sample_revised_json = """
       "description": "A beginner's guide to quantum physics.",
       "author": "John Doe",
       "published": "2022-01-01",
-    }
-  ],
-    "feedback": "The source is well-written and provides a good introduction to quantum physics.
-    The author's explanation is clear and concise. However, there are some technical terms that may be difficult for
-    beginners to understand. Overall, a helpful resource for beginners."
-}
-"""
-
-sample_revised_two_json = """
-{
-  "query": "Quantum Physics",
-  "date": "today's date",
-  "materials": [
-    {
-      "title": "Quantum Physics for Dummies",
-      "url": "https://www.example.com/quantum-physics-for-dummies",
-      "description": "A beginner's guide to quantum physics.",
-      "author": "John Doe",
-      "published": "2022-01-01",
       "feedback": "The source is well-written and provides a good introduction to quantum physics.
       The author's explanation is clear and concise. However, there are some technical terms that may be difficult for
       beginners to understand. Overall, a helpful resource for beginners."
