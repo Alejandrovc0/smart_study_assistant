@@ -7,7 +7,6 @@ from .agents import (
     MaterialAgent,
     RevisorAgent,
     PublishAgent,
-    QnaAgent,
     SchedulerAgent,
     StudyAgent,
 )
@@ -23,7 +22,6 @@ class MainAgent:
         revisor_agent = RevisorAgent()
         scheduler_agent = SchedulerAgent()
         publish_agent = PublishAgent(self.output_dir)
-        qna_agent = QnaAgent()
         study_agent = StudyAgent()
 
         builder = Graph()
@@ -34,12 +32,12 @@ class MainAgent:
         builder.add_node("study", study_agent.run)
 
         builder.add_edge("browse", "revise")
+        builder.add_edge("revise", "schedule")
         builder.add_conditional_edges(
             start_key="revise",
             condition=lambda x: "accept" if x["revise"] is None else "correct",
-            conditional_edge_mapping={"accept": "schedule", "correct": "browse"},
+            conditional_edge_mapping={"accept": "study", "correct": "schedule"},
         )
-        builder.add_edge("revise", "schedule")
         builder.add_edge("schedule", "study")
 
         builder.set_entry_point("browse")
