@@ -15,8 +15,8 @@ class RevisorAgent:
         FILTER_PROMPT = [
             {
                 "role": "system",
-                "content": "You are an expert study advisor and study material critique. You are tasked with reviewing the 3 most relevant study materials "
-                "for a query.\n",
+                "content": "You are an expert study advisor and study material critique. You are tasked with filtering and selecting the 3 most relevant study materials "
+                "for a query. Only choose 3 sources max.\n",
             },
             {
                 "role": "user",
@@ -55,7 +55,7 @@ class RevisorAgent:
             {
                 "role": "system",
                 "content": "You are an expert study advisor and study material critique. You are tasked with reviewing the 3 filtered study materials "
-                "for a query, and provide a short feedback on the quality of the materials along with the sources so the scheduler will know what to propose.",
+                "for a JSON query, and provide a short feedback on the quality of the materials along with the sources so the scheduler will know what to propose.",
             },
             {
                 "role": "user",
