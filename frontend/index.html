@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study Assistant</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <header>
+        <h1>Smart Study Assistant</h1>
+        <p>Type your topic of study and the time available to obtained a personalized study plan</p>
+    </header>
+    <main>
+        <form id="study-form">
+            <input type="text" placeholder="Topic" required>
+
+            <p>Study Timer / Break Timer</p>
+             <!-- Timer Container -->
+             <div class="timer-row">
+                <!-- Timer Container -->
+                <div class="timer-container">
+                    <div class="timer-display" id="pomodoro-timer">25:00</div>
+                    <div class="timer-controls">
+                        <button type="button" id="increase-timer">▲</button>
+                        <button type="button" id="decrease-timer">▼</button>
+                    </div>
+                </div>
+                
+                <!-- Break Timer Container -->
+                <div class="timer-container">
+                    <div class="timer-display" id="break-timer">05:00</div>
+                    <div class="timer-controls">
+                        <button type="button" id="increase-break">▲</button>
+                        <button type="button" id="decrease-break">▼</button>
+                    </div>
+                </div>
+            </div>
+                <button type="submit">Produce Study Plan</button>
+        </form>
+        <footer>
+            &copy; 2024 Smart Study Assistant
+        </footer>
+    </main>
+    <script src="src/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+/* General styling */
+body {
+    font-family: 'Gill Sans', sans-serif;
+    color: #ffffff;
+    background-color: #36363b;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    font-size: 36px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 20px;
+}
+
+/* Main content styling */
+main {
+    text-align: center;
+    background-color: #1d1d24;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"] {
+    font-weight: bold;
+    font-family: 'Gill Sans', sans-serif;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #b1b1bb;
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
+}
+
+input[type="text"]::placeholder {
+    font-family: 'Gill Sans', sans-serif;
+    color: #726c6c;
+}
+
+.timer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3a3b55;
+    border-radius: 10px;
+    padding: 10px;
+    width: 44%;
+    height: 66px;
+}
+
+.timer-display {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.timer-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+button {
+    font-family: 'Gill Sans', sans-serif;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e46124ee;
+    color: #000000;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #bebcc9;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+.timer-row {
+    display: flex;
+    justify-content: space-between;
+}
