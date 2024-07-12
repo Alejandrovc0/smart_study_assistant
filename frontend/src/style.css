@@ -1,42 +1,71 @@
-/* General styling */
+/* Set the styles for the body element */
 body {
-    font-family: 'Gill Sans', sans-serif;
-    color: #ffffff;
+    font-family: 'Gill sans', sans-serif;
     background-color: #36363b;
-    margin: 0;
-    padding: 0;
+    color: #ffffff;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 100vh;
+    margin: 0;
 }
 
-/* Header styling */
-header {
-    text-align: center;
-    font-size: 36px;
-    font-family: 'Times New Roman', Times, serif;
+/* Set the styles for the container element */
+.container {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 15px;
+    width: 600px;
+}
+
+/* Set the styles for the tab view */
+.tab-view {
+    display: flex;
+    justify-content: space-around;
     margin-bottom: 20px;
 }
 
-/* Main content styling */
-main {
-    text-align: center;
-    background-color: #1d1d24;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    width: 400px;
+/* Set the styles for the tab buttons */
+.tab-button {
+    background-color: #2e2e2e;
+    border: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-/* Form styling */
-form {
+/* Set the styles for the active tab button */
+.tab-button.active {
+    background-color: #f96332;
+}
+
+/* Set the styles for the tab content */
+.tab-content {
+    display: none;
+}
+
+/* Set the styles for the active tab content */
+.tab-content.active {
+    display: block;
+}
+
+/* Set the styles for the heading and paragraph elements */
+h1, h2, p {
+    text-align: center;
+}
+
+/* Set the styles for the study plan box */
+.study-plan-box {
+    background-color: #2e2e2e;
+    padding: 20px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
 }
 
+/* Set the styles for the text input */
 input[type="text"] {
     font-weight: bold;
     font-family: 'Gill Sans', sans-serif;
@@ -47,58 +76,73 @@ input[type="text"] {
     color: #000000;
     font-size: 16px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-input[type="text"]::placeholder {
-    font-family: 'Gill Sans', sans-serif;
-    color: #726c6c;
+/* Set the styles for the timer controls */
+.timer-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 20px 0;
 }
 
-.timer-container {
+/* Set the styles for the timer control elements */
+.timer-controls div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Set the styles for the timer control input */
+.timer-controls input {
+    width: 60px;
+    text-align: center;
+    background-color: #b1b1bb;
+    border: none;
+    color: #000000;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* Set the styles for the agent output */
+.agent-output {
+    background-color: #2e2e2e;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+/* Set the styles for the timer box */
+.timer-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #3a3b55;
-    border-radius: 10px;
-    padding: 10px;
-    width: 44%;
-    height: 66px;
 }
 
+/* Set the styles for the timer display */
 .timer-display {
-    font-size: 16px;
-    color: #ffffff;
+    font-size: 2em;
 }
 
-.timer-controls {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
+/* Set the styles for the button element */
 button {
     font-family: 'Gill Sans', sans-serif;
     font-weight: bold;
-    padding: 10px;
+    background-color: #f96332;
     border: none;
-    border-radius: 20px;
-    background-color: #e46124ee;
-    color: #000000;
-    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    color: #ffffff;
     cursor: pointer;
+    width: 70%;
 }
 
+/* Set the styles for the button on hover */
 button:hover {
-    background-color: #bebcc9;
-}
-
-footer {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #b3b3b3;
-}
-
-.timer-row {
-    display: flex;
-    justify-content: space-between;
+    background-color: #e5531e;
 }
