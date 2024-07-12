@@ -41,7 +41,7 @@ class PublishAgent:
         html_filename = self.save_article_html(html_template)
         return html_filename
 
-    def save_article_html(self, html_template):
+    def save_schedule_html(self, html_template):
         filename = "study_assistant.html"
         path = os.path.join(self.output_dir, filename)
         with open(path, 'w') as file:
