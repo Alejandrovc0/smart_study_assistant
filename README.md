@@ -52,13 +52,13 @@ The agents work together in a specific order to provide a comprehensive and pers
 
 ## Getting Started
 
-**Prerequisites:**
+1. **Prerequisites:**
 
     - Python 3.x installed ([https://www.python.org/downloads/](https://www.python.org/downloads/))
     - Required libraries installed: `pip install -r requirements.txt`
     - (Optional) API keys for external services like Tavily or OpenAI (see API Usage)
 
-**API Usage**
+2. **API Usage**
 
     - **Tavily**:
 
@@ -69,7 +69,7 @@ The agents work together in a specific order to provide a comprehensive and pers
       - Create an OpenAI account and obtain an API key ([https://openai.com/](https://openai.com/))
       - Set the `OPENAI_API_KEY` environment variable in your `.env` file.
 
-**Installation:**
+3. **Installation:**
 
     1. Clone the repo
 
