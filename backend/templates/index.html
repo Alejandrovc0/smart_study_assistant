@@ -1,90 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Study Assistant</title>
     <style>
-    body {
-        font-family: "Gill Sans", sans-serif; 
-        background-color: #36363b; 
-        color: #ffffff; 
+      body {
+        font-family: "Gill Sans", sans-serif;
+        background-color: #36363b;
+        color: #ffffff;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 230vh;
         margin: 0;
         padding: 0;
-    }
+      }
 
-    .container {
-        background-color: #1e1e1e; 
+      .container {
+        background-color: #1e1e1e;
         padding: 20px;
-        border-radius: 15px; 
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         max-width: 800px;
         width: 100%;
-    }
+      }
 
-    h1, h2 {
+      h1,
+      h2 {
         text-align: center;
-        color: #ffffff; 
-    }
+        color: #ffffff;
+      }
 
-    ul, ol {
+      ul,
+      ol {
         padding-left: 20px;
-        color: #ffffff; 
-    }
+        color: #ffffff;
+      }
 
-    .study-plan, .study-schedule {
+      .study-plan,
+      .study-schedule {
         margin-top: 20px;
         background-color: #2e2e2e;
-        padding: 20px; 
-        border-radius: 20px; 
-        color: #ffffff; 
-    }
+        padding: 20px;
+        border-radius: 20px;
+        color: #ffffff;
+      }
 
-    .clock {
-        font-family: "Gill Sans", sans-serif; 
-        color: #ffffff; 
-        background-color: #2e2e2e; 
-        padding: 10px; 
-        border-radius: 15px; 
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
-        text-align: center; 
+      .clock {
+        font-family: "Gill Sans", sans-serif;
+        color: #ffffff;
+        background-color: #2e2e2e;
+        padding: 10px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
         width: 200px; /* Adjust as needed */
         margin: 20px auto; /* Center the clock */
-    }
-</style>
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/schedule">Schedule</a></li>
-                <li><a href="/plan">Plan</a></li>
-            </ul>
-        </nav>
-        <header class="header">
-            <h1>{{title}}</h1>
-        </header>
-        <main>
-            <section class="study-plan">
-                <h2>Study Plan</h2>
-                <div class="content">
-                    {{study_plan}}
-                </div>
-            </section>
-            <section class="study-schedule">
-                <h2>Study Schedule</h2>
-                <div class="content">
-                    {{study_schedule}}
-                </div>
-            <div class="clock" id="clock">00:00</div>
-            </section>
-        </main>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/schedule">Schedule</a></li>
+          <li><a href="/plan">Plan</a></li>
+        </ul>
+      </nav>
+      <header class="header">
+        <h1>{{title}}</h1>
+      </header>
+      <main>
+        <section class="study-plan">
+          <h2>Study Plan</h2>
+          <div class="content">{{study_plan}}</div>
+        </section>
+        <section class="study-schedule">
+          <h2>Study Schedule</h2>
+          <div class="content">{{study_schedule}}</div>
+          <div class="clock" id="clock">00:00</div>
+        </section>
+      </main>
     </div>
-</body>
+  </body>
 </html>

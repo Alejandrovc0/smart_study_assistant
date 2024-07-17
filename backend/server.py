@@ -1,5 +1,4 @@
-from flask import Flask, jsonify, request, send_file, abort
-from werkzeug.utils import safe_join
+from flask import Flask, jsonify, request
 from backend.langgraph_agent import MainAgent
 from backend.agents.website_agent import WebsiteAgent
 import os
@@ -13,9 +12,11 @@ backend_app = Flask(__name__)
 outputs_dir = os.path.join(os.path.dirname(__file__), "..", "outputs")
 os.makedirs(outputs_dir, exist_ok=True)
 
+
 @backend_app.route("/", methods=["GET"])
 def index():
     return jsonify({"status": "Running"}), 200
+
 
 @backend_app.route("/smart_study_assistant", methods=["POST"])
 def run_agents():

@@ -183,7 +183,6 @@ class SchedulerAgent:
             "response_format": {"type": "json_object"},
         }
 
-        
         response = (
             ChatOpenAI(
                 model="gpt-4-turbo",
@@ -249,32 +248,32 @@ class SchedulerAgent:
             raise
 
     def run(self, schedule: dict):
-      try:
-          revise = schedule.get("revision")
-          if revise is not None:
-              revised_schedule = self.revise_schedule(schedule)
-              if revised_schedule is not None:
-                  schedule.update(revised_schedule)
-              else:
-                  raise ValueError("Failed to revise schedule.")
-          else:
-              created_schedule = self.create_schedule(
-                  schedule["query"], schedule["sources"]
-              )
-              if created_schedule is not None:
-                  schedule.update(created_schedule)
-              else:
-                  raise ValueError("Failed to create schedule.")
-          
-          # Validate the schedule
-          if not self.validate_schedule(schedule):
-              raise ValueError("Invalid schedule structure.")
-          
-          return schedule
-      except Exception as e:
-          print(f"Error in SchedulerAgent: {str(e)}")
-          return None
+        try:
+            revise = schedule.get("revision")
+            if revise is not None:
+                revised_schedule = self.revise_schedule(schedule)
+                if revised_schedule is not None:
+                    schedule.update(revised_schedule)
+                else:
+                    raise ValueError("Failed to revise schedule.")
+            else:
+                created_schedule = self.create_schedule(
+                    schedule["query"], schedule["sources"]
+                )
+                if created_schedule is not None:
+                    schedule.update(created_schedule)
+                else:
+                    raise ValueError("Failed to create schedule.")
+
+            # Validate the schedule
+            if not self.validate_schedule(schedule):
+                raise ValueError("Invalid schedule structure.")
+
+            return schedule
+        except Exception as e:
+            print(f"Error in SchedulerAgent: {str(e)}")
+            return None
 
     def validate_schedule(self, schedule):
-        required_keys = ['title', 'date', 'sources', 'schedule']
+        required_keys = ["title", "date", "sources", "schedule"]
         return all(key in schedule for key in required_keys)

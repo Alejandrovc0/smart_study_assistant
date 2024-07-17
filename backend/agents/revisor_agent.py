@@ -39,7 +39,7 @@ class RevisorAgent:
                 .invoke(ai_messages)
                 .content
             )
-            if response == 'None':
+            if response == "None":
                 return {"revision": None}
             else:
                 if "title" in materials:
