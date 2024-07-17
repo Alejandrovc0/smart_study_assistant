@@ -10,6 +10,13 @@ This project creates a smart student assistant designed to help users gather stu
 - **Content Summarization & Simplification:** Analyzes gathered materials and creates concise summaries using natural language processing. Can simplify complex concepts into easier-to-understand language upon request.
 - **Personalized Study Schedule:** Based on user preferences and learning pace, creates a schedule that breaks down learning into manageable chunks and incorporates various resources.
 
+**Generated Outcomes**
+![image](https://github.com/user-attachments/assets/20f77f2d-e629-439b-b170-87e410bc7289)
+![image](https://github.com/user-attachments/assets/ea534153-274d-4e8a-8406-b1b45ebdda4b)
+![image](https://github.com/user-attachments/assets/9b569d86-3c8d-4c17-90b0-169de0724987)
+
+
+
 **Modules**
 
 The project is organized into several modules:
