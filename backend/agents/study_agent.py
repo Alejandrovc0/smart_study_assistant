@@ -2,44 +2,43 @@ import time
 
 
 class StudyAgent:
-    def __init__(self, work_duration=25, break_duration=5):
-        self.work_duration = work_duration
-        self.break_duration = break_duration
-        self.sessions_completed = 0
-        self.total_sessions_completed = 0
+    def __init__(self):
+        self.study_time = None
+        self.break_time = None
 
-    def set_work_duration(self, minutes):
-        self.work_duration = minutes
+    def start_study_session(self, task):
+        print(f"Starting study session for: {task}")
+        try:
+            self.countdown(self.study_time, "Study")
+        except Exception as e:
+            print(f"An error occurred during the study session: {str(e)}")
 
-    def set_break_duration(self, minutes):
-        self.break_duration = minutes
+    def start_break(self):
+        print("Break time! Relax and recharge.")
+        try:
+            self.countdown(self.break_time, "Break")
+        except Exception as e:
+            print(f"An error occurred during the break: {str(e)}")
 
-    def start_pomodoro(self):
-        print(f"Starting work session for {self.work_duration} minutes.")
-        time.sleep(self.work_duration * 60)
-        self.sessions_completed += 1
-        print("Work session completed. Time for a break!")
+    def countdown(self, duration, session_type):
+        try:
+            total_seconds = duration * 60
+            while total_seconds > 0:
+                minutes, seconds = divmod(total_seconds, 60)
+                time_format = f"{minutes:02d}:{seconds:02d}"
+                print(f"{session_type} Time Remaining: {time_format}", end="\r")
+                time.sleep(1)
+                total_seconds -= 1
+            print(f"\n{session_type} session has ended.")
+        except Exception as e:
+            print(f"An error occurred during the countdown: {str(e)}")
 
-        print(f"Starting break session for {self.break_duration} minutes.")
-        time.sleep(self.break_duration * 60)
-        print("Break session completed. Back to work!")
-
-        if self.sessions_completed == 4:
-            self.break_duration = 15
-            print("Long break time! 15 minutes.")
-            time.sleep(15 * 60)
-            self.total_sessions_completed = self.sessions_completed
-            self.sessions_completed = 0
-            print("Long break session completed. Back to work!")
-
-    def get_sessions_completed(self):
-        return self.total_sessions_completed
-
-
-# Example usage
-if __name__ == "__main__":
-    agent = StudyAgent()
-    agent.set_work_duration(25)
-    agent.set_break_duration(5)
-    agent.start_pomodoro()
-    print(f"Sessions completed: {agent.get_sessions_completed()}")
+    def run(self, study_schedule, study_time, break_time):
+        self.study_time = study_time
+        self.break_time = break_time
+        for session in study_schedule:
+            task = session["topic"]
+            duration = session["duration"]
+            self.study_time = duration
+            self.start_study_session(task)
+            self.start_break()

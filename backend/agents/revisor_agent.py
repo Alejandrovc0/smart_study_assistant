@@ -4,45 +4,6 @@ from langchain_openai import ChatOpenAI
 
 
 class RevisorAgent:
-    def filter_sources(self, query: str, sources: list):
-        """
-        Filter for relevant sources for a query.
-
-        :param query: The study query/topic.
-        :param sources: A list of source dictionaries containing 'url' and other relevant keys.
-        :return: List of filtered sources.
-        """
-        FILTER_PROMPT = [
-            {
-                "role": "system",
-                "content": "You are an expert study advisor and study material critique. You are tasked with filtering and selecting the 3 most relevant study materials "
-                "for a query. Only choose 3 sources max.\n",
-            },
-            {
-                "role": "user",
-                "content": f"Today's date is {datetime.now().strftime('%d/%m/%Y')}\n."
-                f"Topic or query: {query}\n"
-                f"Your purpouse is to provide the 3 most relevant sources for me to plan a detailed study plan and schedule for"
-                "the provided topic or query\n"
-                f"Here are the 3 most relevant sources for the query:\n"
-                f"{[source['url'] for source in sources]}\n"
-                f"Please only return a list of the URLs in this format: ['url1','url2','url3']\n",
-            },
-        ]
-
-        ai__filter_messages = convert_openai_messages(FILTER_PROMPT)
-        response = (
-            ChatOpenAI(model="gpt-4", temperature=0, max_retries=1)
-            .invoke(ai__filter_messages)
-            .content
-        )
-        filtered_sources_urls = eval(response)
-        filtered_sources = [
-            source for source in sources if source["url"] in filtered_sources_urls
-        ]
-
-        return filtered_sources
-
     def revise_sources(self, materials: dict):
         """
         Revise relevant sources and provide feedback for a query.
@@ -51,36 +12,46 @@ class RevisorAgent:
         :return: Dictionary with revision feedback.
 
         """
-        REVISE_PROMPT = [
-            {
-                "role": "system",
-                "content": "You are an expert study advisor and study material critique. You are tasked with reviewing the 3 filtered study materials "
-                "for a JSON query, and provide a short feedback on the quality of the materials along with the sources so the scheduler will know what to propose.",
-            },
-            {
-                "role": "user",
-                "content": f"Today's date is {datetime.now().strftime('%d/%m/%Y')}\n."
-                f"{str(materials)}\n"
-                f"Your purpouse is to provide feedback on the quality of the materials and suggest improvements for "
-                "the provided topic or query\n"
-                f"Return None if you think there is no need for revision.\n",
-            },
-        ]
+        try:
+            REVISE_PROMPT = [
+                {
+                    "role": "system",
+                    "content": "You are an expert study advisor and critique of study materials. Your primary purpose is to review the provided study schedule and materials, and give concise feedback on their quality and relevance. This feedback will help improve the proposed study schedule.",
+                },
+                {
+                    "role": "user",
+                    "content": (
+                        "Here is the schedule and its sources for review:\n"
+                        f"{str(materials)}\n"
+                        "Your task is to review the schedule along with the sources and provide brief feedback on how to improve them, but ONLY if necessary.\n"
+                        "If there is a 'corrected' field in the schedule, it indicates a previous revision based on your feedback. You should review this corrected schedule and provide further feedback if needed.\n"
+                        "If you believe the schedule is good as it is, simply return None.\n"
+                        "Otherwise, provide a brief string of feedback on how to improve the schedule.\n"
+                        "Ensure your feedback is clear, concise, and directly related to the quality and relevance of the materials."
+                        "Please return a string of your feedback or None if no changes are needed."
+                    ),
+                },
+            ]
 
-        ai_messages = convert_openai_messages(REVISE_PROMPT)
-        response = (
-            ChatOpenAI(model="gpt-4", temperature=0, max_retries=1)
-            .invoke(ai_messages)
-            .content
-        )
-        if response.strip().lower() == "none":
-            return {"revision": None}
-        else:
-            return {"revision": response}
+            ai_messages = convert_openai_messages(REVISE_PROMPT)
+            response = (
+                ChatOpenAI(model="gpt-4-turbo", temperature=0, max_retries=1)
+                .invoke(ai_messages)
+                .content
+            )
+            if response == 'None':
+                return {"revision": None}
+            else:
+                if "title" in materials:
+                    print(f"For article: {materials['title']}")
+                print(f"Feedback: {response}\n")
+                return {"revision": response, "corrected": None}
+        except Exception as e:
+            print(f"An error occurred: {str(e)}")
+            return {"error": str(e)}
 
     def run(self, materials: dict):
-        filtered_sources = self.filter_sources(materials["query"], materials["sources"])
-        materials["filtered_sources"] = filtered_sources
         revision_feedback = self.revise_sources(materials)
-        materials.update(revision_feedback)
+        if revision_feedback:
+            materials.update(revision_feedback)
         return materials
