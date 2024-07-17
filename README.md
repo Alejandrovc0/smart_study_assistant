@@ -1,6 +1,6 @@
-## Project: Smart Student Assistant
+# Smart Student Assistant
 
-**Description**
+**Overview**
 
 This project creates a smart student assistant designed to help users gather study materials, break them down for easier comprehension, and create a personalized study schedule to learn a desired topic efficiently. It leverages AI and natural language processing to automate the collection and simplification of learning resources, offering a tailored learning experience.
 
@@ -9,6 +9,13 @@ This project creates a smart student assistant designed to help users gather stu
 - **Web Resource Gathering:** Utilizes AI agents to search the web for relevant learning materials like articles, videos, and tutorials.
 - **Content Summarization & Simplification:** Analyzes gathered materials and creates concise summaries using natural language processing. Can simplify complex concepts into easier-to-understand language upon request.
 - **Personalized Study Schedule:** Based on user preferences and learning pace, creates a schedule that breaks down learning into manageable chunks and incorporates various resources.
+
+**Generated Outcomes**
+![image](https://github.com/user-attachments/assets/20f77f2d-e629-439b-b170-87e410bc7289)
+![image](https://github.com/user-attachments/assets/ea534153-274d-4e8a-8406-b1b45ebdda4b)
+![image](https://github.com/user-attachments/assets/9b569d86-3c8d-4c17-90b0-169de0724987)
+
+
 
 **Modules**
 
@@ -98,3 +105,12 @@ We welcome contributions to this project!
 **License**
 
 This project is licensed under the MIT License. For more information, see the [LICENSE](LICENSE) file.
+
+**Inspired By**
+
+This project was inspired by GPT Newspaper (https://github.com/rotemweiss57/gpt-newspaper.git).  The overall concept of using multiple agents to create a smart assistant informed the design of this project. 
+
+**Key Differences**
+
+While inspired by the overall approach, this project focuses on creating a study assistant with specific functionalities like content summarization, schedule revision, and knowledge graph integration (if applicable).
+
