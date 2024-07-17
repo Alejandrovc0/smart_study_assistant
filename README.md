@@ -10,7 +10,7 @@ This project creates a smart student assistant designed to help users gather stu
 - **Content Summarization & Simplification:** Analyzes gathered materials and creates concise summaries using natural language processing. Can simplify complex concepts into easier-to-understand language upon request.
 - **Personalized Study Schedule:** Based on user preferences and learning pace, creates a schedule that breaks down learning into manageable chunks and incorporates various resources.
 
-##Generated Outcomes##
+## Generated Outcomes
 
 ![image](https://github.com/user-attachments/assets/20f77f2d-e629-439b-b170-87e410bc7289)
 ![image](https://github.com/user-attachments/assets/ea534153-274d-4e8a-8406-b1b45ebdda4b)
@@ -52,13 +52,13 @@ The agents work together in a specific order to provide a comprehensive and pers
 
 ## Getting Started
 
-1.  **Prerequisites:**
+**Prerequisites:**
 
     - Python 3.x installed ([https://www.python.org/downloads/](https://www.python.org/downloads/))
     - Required libraries installed: `pip install -r requirements.txt`
     - (Optional) API keys for external services like Tavily or OpenAI (see API Usage)
 
-2.  **API Usage**
+**API Usage**
 
     - **Tavily**:
 
@@ -69,7 +69,7 @@ The agents work together in a specific order to provide a comprehensive and pers
       - Create an OpenAI account and obtain an API key ([https://openai.com/](https://openai.com/))
       - Set the `OPENAI_API_KEY` environment variable in your `.env` file.
 
-3.  **Installation:**
+**Installation:**
 
     1. Clone the repo
 
