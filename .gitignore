@@ -1,7 +1,6 @@
 # .gitignore
 
+# Byte-compiled / optimized / DLL files
 .env
-
-outputs/
-
 __pycache__/
+outputs/
