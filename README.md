@@ -1,6 +1,6 @@
-## Project: Smart Student Assistant
+# Smart Student Assistant
 
-**Description**
+**Overview**
 
 This project creates a smart student assistant designed to help users gather study materials, break them down for easier comprehension, and create a personalized study schedule to learn a desired topic efficiently. It leverages AI and natural language processing to automate the collection and simplification of learning resources, offering a tailored learning experience.
 
@@ -98,3 +98,12 @@ We welcome contributions to this project!
 **License**
 
 This project is licensed under the MIT License. For more information, see the [LICENSE](LICENSE) file.
+
+**Inspired By**
+
+This project was inspired by GPT Newspaper (https://github.com/rotemweiss57/gpt-newspaper.git).  The overall concept of using multiple agents to create a smart assistant informed the design of this project. 
+
+**Key Differences**
+
+While inspired by the overall approach, this project focuses on creating a study assistant with specific functionalities like content summarization, schedule revision, and knowledge graph integration (if applicable).
+
