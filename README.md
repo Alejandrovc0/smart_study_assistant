@@ -1,10 +1,10 @@
 # Smart Student Assistant
 
-##Overview##
+## Overview
 
 This project creates a smart student assistant designed to help users gather study materials, break them down for easier comprehension, and create a personalized study schedule to learn a desired topic efficiently. It leverages AI and natural language processing to automate the collection and simplification of learning resources, offering a tailored learning experience.
 
-##Features##
+## Features
 
 - **Web Resource Gathering:** Utilizes AI agents to search the web for relevant learning materials like articles, videos, and tutorials.
 - **Content Summarization & Simplification:** Analyzes gathered materials and creates concise summaries using natural language processing. Can simplify complex concepts into easier-to-understand language upon request.
@@ -18,7 +18,7 @@ This project creates a smart student assistant designed to help users gather stu
 
 
 
-##*Modules##
+## Modules
 
 The project is organized into several modules:
 
@@ -39,7 +39,7 @@ The project is organized into several modules:
 
 - **others**: Standard project files like `.env`, `.gitignore`, `app.py`, `requirements.txt`, etc., supporting the application's configuration, dependencies, and execution.
 
-##Agent Workflow*##
+## Agent Workflow
 
 The agents work together in a specific order to provide a comprehensive and personalized study experience:
 
@@ -50,7 +50,7 @@ The agents work together in a specific order to provide a comprehensive and pers
 5. **Website Agent (Optional):** If a web interface exists, it takes the final revised schedule and creates an HTML template for displaying it to the user.
 6. **Publish Agent:** Prepares the final study plan for user access by saving it to a designated location.
 
-##Getting Started##
+## Getting Started
 
 1.  **Prerequisites:**
 
@@ -99,19 +99,19 @@ The agents work together in a specific order to provide a comprehensive and pers
        python app.py
        ```
 
-##Contributing##
+## Contributing
 
 We welcome contributions to this project!
 
-##License##
+## License
 
 This project is licensed under the MIT License. For more information, see the [LICENSE](LICENSE) file.
 
-##Inspired By##
+## Inspired By
 
 This project was inspired by GPT Newspaper (https://github.com/rotemweiss57/gpt-newspaper.git).  The overall concept of using multiple agents to create a smart assistant informed the design of this project. 
 
-##Key Differences##
+## Key Differences
 
 While inspired by the overall approach, this project focuses on creating a study assistant with specific functionalities like content summarization, schedule revision, and knowledge graph integration (if applicable).
 
