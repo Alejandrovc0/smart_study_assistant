@@ -1,10 +1,10 @@
-langchain
-langgraph
-tavily-python
 BeautifulSoup4
-openai
-flask
-json5
+Flask
 Flask-CORS
+json5
+langchain
 langchain_openai
+langgraph
+openai
 python-dotenv
+tavily-python

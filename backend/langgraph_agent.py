@@ -1,14 +1,16 @@
 import os
 import time
+import logging
 from langgraph.graph import Graph
 from concurrent.futures import ThreadPoolExecutor
 
 from .agents import (
-    MaterialAgent,
+    SourcesAgent,
+    FilterAgent,
     RevisorAgent,
-    PublishAgent,
     SchedulerAgent,
-    StudyAgent,
+    PublishAgent,
+    WebsiteAgent,
 )
 
 
@@ -16,38 +18,51 @@ class MainAgent:
     def __init__(self):
         self.output_dir = f"outputs/run_{int(time.time())}"
         os.makedirs(self.output_dir, exist_ok=True)
+        logging.basicConfig(level=logging.INFO)
 
     def run(self, queries: list):
-        material_agent = MaterialAgent()
-        revisor_agent = RevisorAgent()
-        scheduler_agent = SchedulerAgent()
-        publish_agent = PublishAgent(self.output_dir)
-        study_agent = StudyAgent()
+        try:
+            sources_agent = SourcesAgent()
+            filter_agent = FilterAgent()
+            revisor_agent = RevisorAgent()
+            scheduler_agent = SchedulerAgent()
+            publish_agent = PublishAgent(self.output_dir)
+            website_agent = WebsiteAgent(self.output_dir)
 
-        builder = Graph()
+            builder = Graph()
 
-        builder.add_node("browse", material_agent.run)
-        builder.add_node("revise", revisor_agent.run)
-        builder.add_node("schedule", scheduler_agent.run)
-        builder.add_node("study", study_agent.run)
+            builder.add_node("browse", sources_agent.run)
+            builder.add_node("filter", filter_agent.run)
+            builder.add_node("revise", revisor_agent.run)
+            builder.add_node("schedule", scheduler_agent.run)
+            builder.add_node("website", website_agent.run)
 
-        builder.add_edge("browse", "revise")
-        builder.add_edge("revise", "schedule")
-        builder.add_conditional_edges(
-            start_key="revise",
-            condition=lambda x: "accept" if x["revise"] is None else "correct",
-            conditional_edge_mapping={"accept": "study", "correct": "schedule"},
-        )
-        builder.add_edge("schedule", "study")
+            builder.set_entry_point("browse")
 
-        builder.set_entry_point("browse")
-        builder.set_finish_point("study")
-        
-        graph = builder.compile()
+            builder.add_edge("browse", "filter")
+            builder.add_edge("filter", "schedule")
+            builder.add_edge("schedule", "revise")
 
-        with ThreadPoolExecutor() as executor:
-            results = list(executor.map(lambda q: graph.invoke({"query": q}), queries))
+            builder.add_conditional_edges(
+                "revise",
+                lambda x: "accept" if x["revision"] is None else "revise",
+                {"accept": "website", "revise": "schedule"},
+            )
 
-        studyAssistant_html = publish_agent.run(results)
+            builder.set_finish_point("website")
 
-        return studyAssistant_html
+            graph = builder.compile()
+
+            with ThreadPoolExecutor() as executor:
+                results = list(
+                    executor.map(lambda q: graph.invoke({"query": q}), queries)
+                )
+
+            schedule_html = website_agent.run(results)
+            studyAssistant_path = publish_agent.run(schedule_html)
+
+            return studyAssistant_path
+
+        except Exception as e:
+            logging.error(f"An error occurred during the execution: {e}")
+            raise

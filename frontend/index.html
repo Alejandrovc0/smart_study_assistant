@@ -3,45 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Study Assistant</title>
     <link rel="stylesheet" href="src/style.css">
+    <title>Smart Study Assistant</title>
 </head>
 <body>
-    <header>
-        <h1>Smart Study Assistant</h1>
-        <p>Type your topic of study and the time available to obtained a personalized study plan</p>
-    </header>
-    <main>
-        <form id="study-form">
-            <input type="text" placeholder="Topic" required>
+    <div class="container">
+        <div class="tab-view">
+            <button class="tab-button active" onclick="openTab(event, 'PlanSchedule')">Plan Schedule</button>
+            <button class="tab-button" onclick="openTab(event, 'LiveAgentOutput')">Live Agent Output</button>
+        </div>
 
-            <p>Study Timer / Break Timer</p>
-             <!-- Timer Container -->
-             <div class="timer-row">
-                <!-- Timer Container -->
-                <div class="timer-container">
-                    <div class="timer-display" id="pomodoro-timer">25:00</div>
-                    <div class="timer-controls">
-                        <button type="button" id="increase-timer">▲</button>
-                        <button type="button" id="decrease-timer">▼</button>
+        <div id="PlanSchedule" class="tab-content active">
+            <h1>Smart Study Assistant</h1>
+            <div class="study-plan-box">
+                <input type="text" placeholder="Topic" id="study-topic" oninput="validateinput()">
+                <div class="timer-controls">
+                    <div>
+                        <label for="study-time">Study Timer</label>
+                        <input type="number" id="study-time" value="25">
+                    </div>
+                    <div>
+                        <label for="break-time">Break Timer</label>
+                        <input type="number" id="break-time" value="5">
                     </div>
                 </div>
-                
-                <!-- Break Timer Container -->
-                <div class="timer-container">
-                    <div class="timer-display" id="break-timer">05:00</div>
-                    <div class="timer-controls">
-                        <button type="button" id="increase-break">▲</button>
-                        <button type="button" id="decrease-break">▼</button>
-                    </div>
-                </div>
+                <button type="button" id="produce-study-plan" onclick="openTab(event, 'LiveAgentOutput')">Produce Study Plan</button>
             </div>
-                <button type="submit">Produce Study Plan</button>
-        </form>
-        <footer>
-            &copy; 2024 Smart Study Assistant
-        </footer>
-    </main>
+        </div>
+
+        <div id="LiveAgentOutput" class="tab-content">
+            <h2>Live Agent Output</h2>
+            <div id="waiting-messages"></div>
+            <div class="loadbar-container" id="loadbarContainer">
+                <div class="loadbar" id="loadbar"></div>
+            </div>
+            <section>
+                <div class="agent-output" id="agentOutput"></div>
+                <!-- AI Agent Output will be displayed here -->
+                <div class="timer-box">
+                    <div class="timer-display" id="timer">25:00</div>
+                    <button onclick="startPauseTimer()" id="start-pause-button">Start</button>
+                    <button onclick="resetTimer()">Reset</button>
+                </div>
+            </section>
+            </div>
+        </div>
+    </div>
     <script src="src/script.js"></script>
 </body>
 </html>
