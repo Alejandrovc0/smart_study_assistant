@@ -16,7 +16,7 @@
         <div id="PlanSchedule" class="tab-content active">
             <h1>Smart Study Assistant</h1>
             <div class="study-plan-box">
-                <input type="text" placeholder="Topic" id="study-topic">
+                <input type="text" placeholder="Topic" id="study-topic" oninput="validateinput()">
                 <div class="timer-controls">
                     <div>
                         <label for="study-time">Study Timer</label>
@@ -27,22 +27,28 @@
                         <input type="number" id="break-time" value="5">
                     </div>
                 </div>
-                <button onclick="generateStudyPlan()">Produce Study Plan</button>
+                <button type="button" id="produce-study-plan" onclick="openTab(event, 'LiveAgentOutput')">Produce Study Plan</button>
             </div>
         </div>
 
         <div id="LiveAgentOutput" class="tab-content">
             <h2>Live Agent Output</h2>
-            <div class="agent-output">
-                <!-- AI Agent Output will be displayed here -->
+            <div id="waiting-messages"></div>
+            <div class="loadbar-container" id="loadbarContainer">
+                <div class="loadbar" id="loadbar"></div>
             </div>
-            <div class="timer-box">
-                <div class="timer-display" id="timer">25:00</div>
-                <button onclick="startPauseTimer()" id="start-pause-button">Start</button>
-                <button onclick="resetTimer()">Reset</button>
+            <section>
+                <div class="agent-output" id="agentOutput"></div>
+                <!-- AI Agent Output will be displayed here -->
+                <div class="timer-box">
+                    <div class="timer-display" id="timer">25:00</div>
+                    <button onclick="startPauseTimer()" id="start-pause-button">Start</button>
+                    <button onclick="resetTimer()">Reset</button>
+                </div>
+            </section>
             </div>
         </div>
     </div>
-    <script src="scripts.js"></script>
+    <script src="src/script.js"></script>
 </body>
 </html>
