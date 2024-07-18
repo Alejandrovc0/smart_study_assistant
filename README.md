@@ -105,6 +105,13 @@ The agents work together in a specific order to provide a comprehensive and pers
        python app.py
        ```
 
+## Acknowledgment
+This project was developed with guidance from GPT Newspaper (https://github.com/rotemweiss57/gpt-newspaper.git). The structure and some of the implementation ideas were inspired by the original project.
+
+## Key Differences
+
+While inspired by the overall approach, this project focuses on creating a study assistant with specific functionalities like content summarization, schedule revision, and knowledge graph integration (if applicable).
+
 ## Contributing
 
 We welcome contributions to this project!
@@ -113,10 +120,4 @@ We welcome contributions to this project!
 
 This project is licensed under the MIT License. For more information, see the [LICENSE](LICENSE) file.
 
-## Acknowledgment
-This project was developed with guidance from GPT Newspaper (https://github.com/rotemweiss57/gpt-newspaper.git). The structure and some of the implementation ideas were inspired by the original project.
-
-## Key Differences
-
-While inspired by the overall approach, this project focuses on creating a study assistant with specific functionalities like content summarization, schedule revision, and knowledge graph integration (if applicable).
 
