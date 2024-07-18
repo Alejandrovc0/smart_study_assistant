@@ -17,7 +17,6 @@ This project creates a smart student assistant designed to help users gather stu
 ![image](https://github.com/user-attachments/assets/9b569d86-3c8d-4c17-90b0-169de0724987)
 
 
-
 ## Modules
 
 The project is organized into several modules:
@@ -54,7 +53,7 @@ The agents work together in a specific order to provide a comprehensive and pers
 
 1. **Prerequisites:**
 
-    - Python 3.x installed ([https://www.python.org/downloads/](https://www.python.org/downloads/))
+    - Python 3.8 or higher installed ([https://www.python.org/downloads/](https://www.python.org/downloads/))
     - Required libraries installed: `pip install -r requirements.txt`
     - (Optional) API keys for external services like Tavily or OpenAI (see API Usage)
 
@@ -82,8 +81,15 @@ The agents work together in a specific order to provide a comprehensive and pers
        ```bash
        pip install -r requirements.txt
        ```
+       
+    3. Set up environment variables:
 
-    3. (Optional) Set up a development environment using Docker:
+        ```bash
+        cp .env.dist .env
+        # Edit the .env file to include your specific environment variables
+        ```
+        
+    4. (Optional) Set up a development environment using Docker:
 
        ```bash
        # Build the Docker image
@@ -93,7 +99,7 @@ The agents work together in a specific order to provide a comprehensive and pers
        docker-compose up
        ```
 
-    4. Run the application:
+    5. Run the application:
 
        ```bash
        python app.py
@@ -107,9 +113,8 @@ We welcome contributions to this project!
 
 This project is licensed under the MIT License. For more information, see the [LICENSE](LICENSE) file.
 
-## Inspired By
-
-This project was inspired by GPT Newspaper (https://github.com/rotemweiss57/gpt-newspaper.git).  The overall concept of using multiple agents to create a smart assistant informed the design of this project. 
+## Acknowledgment
+This project was developed with guidance from GPT Newspaper (https://github.com/rotemweiss57/gpt-newspaper.git). The structure and some of the implementation ideas were inspired by the original project.
 
 ## Key Differences
 
