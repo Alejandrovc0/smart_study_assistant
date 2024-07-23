@@ -66,26 +66,22 @@ class WebsiteAgent:
         return study_schedule_html
 
     def designer(self, result):
-        try:
-            if not isinstance(result, dict):
-                raise TypeError(f"Expected result to be a dict, got {type(result)}")
+        if not isinstance(result, dict):
+            raise TypeError(f"Expected result to be a dict, got {type(result)}")
 
-            index_template = self.load_html_template("index.html")
-            if index_template is None:
-                raise ValueError("Index HTML template is None")
+        index_template = self.load_html_template("index.html")
+        if index_template is None:
+            raise ValueError("Index HTML template is None")
 
-            study_plan_html = self.generate_study_plan_html(result.get('sources', []))
-            study_schedule_html = self.generate_study_schedule_html(result.get('schedule', []))
+        study_plan_html = self.generate_study_plan_html(result.get('sources', []))
+        study_schedule_html = self.generate_study_schedule_html(result.get('schedule', []))
 
-            index_template = index_template.replace("{{title}}", result.get('title', 'Study Plan'))
-            index_template = index_template.replace("{{study_plan}}", study_plan_html)
-            index_template = index_template.replace("{{study_schedule}}", study_schedule_html)
+        index_template = index_template.replace("{{title}}", result.get('title', 'Study Plan'))
+        index_template = index_template.replace("{{study_plan}}", study_plan_html)
+        index_template = index_template.replace("{{study_schedule}}", study_schedule_html)
 
-            result["html"] = index_template
-            return result
-        except Exception as e:
-            logging.error(f"Error in designer: {str(e)}")
-            return None
+        result["html"] = index_template
+        return result
 
     def save_schedule_html(self, result:dict):
         try:
