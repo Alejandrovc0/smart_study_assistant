@@ -4,7 +4,7 @@ import requests
 
 tavily_api_key = os.getenv("TAVILY_API_KEY")
 if tavily_api_key is None:
-    tavily_api_key = "YOUR_DEFAULT_API_KEY"
+    tavily_api_key = "TAVILY_API_KEY environment variable is not set."
 tavily_client = TavilyClient(api_key=tavily_api_key)
 
 
