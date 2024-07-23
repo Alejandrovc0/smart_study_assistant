@@ -3,6 +3,7 @@ Flask
 Flask-CORS
 json5
 langchain
+langchain_community
 langchain_openai
 langgraph
 openai
