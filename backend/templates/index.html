@@ -47,16 +47,38 @@
         color: #ffffff;
       }
 
-      .clock {
-        font-family: "Gill Sans", sans-serif;
-        color: #ffffff;
-        background-color: #2e2e2e;
-        padding: 10px;
-        border-radius: 15px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        width: 200px; /* Adjust as needed */
-        margin: 20px auto; /* Center the clock */
+      /* Set the styles for the timer box */
+      .timer-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Set the styles for the timer display */
+      .timer-display {
+        font-size: 2em;
+        flex-direction: column;
+      }
+            
+      @media (max-width: 480px) {
+        .container {
+          width: 95%;
+        }
+
+        .navbar ul {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .study-plan, .study-schedule {
+          margin-top: 10px;
+          padding: 10px;
+          border-radius: 10px;
+        }
+
+        h1, h2 {
+          font-size: 1.5em; /* Smaller font size for headings */
+        }
       }
     </style>
   </head>
@@ -80,9 +102,13 @@
         <section class="study-schedule">
           <h2>Study Schedule</h2>
           <div class="content">{{study_schedule}}</div>
-          <div class="clock" id="clock">00:00</div>
+          <div class="timer-box">
+            <div class="timer-display" id="timer">25:00</div>
+            <button onclick="startPauseTimer()" id="start-pause-button">Start</button>
+            <button onclick="resetTimer()">Reset</button>
         </section>
       </main>
     </div>
+    <script src="src/script.js"></script>
   </body>
 </html>
