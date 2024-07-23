@@ -217,6 +217,7 @@ class SchedulerAgent:
                     "Return a JSON object with the revised schedule and provide a new message in the 'corrected' field "
                     "explaining the changes made or why no changes were necessary.\n"
                     f"Include today's date: {datetime.now().strftime('%Y-%m-%d')}\n"
+                    f"Always include a break time and adjust acordingly to the Pomodoro technique, and after 4 sessions include a long break\n"
                     f"If the material is complex, feel free to adjust the session durations accordingly. Even dividing it in day sessions.\n"
                     "Provide the revised schedule as a JSON object in the following format:\n"
                     f"{sample_revised_json}"
