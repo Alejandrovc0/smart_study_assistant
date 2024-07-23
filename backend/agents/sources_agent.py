@@ -2,7 +2,10 @@ from tavily import TavilyClient
 import os
 import requests
 
-tavily_client = TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
+tavily_api_key = os.getenv("TAVILY_API_KEY")
+if tavily_api_key is None:
+    tavily_api_key = "YOUR_DEFAULT_API_KEY"
+tavily_client = TavilyClient(api_key=tavily_api_key)
 
 
 class SourcesAgent:
